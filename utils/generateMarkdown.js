@@ -34,6 +34,8 @@ function renderLicenseBadge(license) {
   if (!license) {
     return '';
   }
+
+  return licenses.filter(l => l.name == license)[0].badge;
 }
 
 // TODO: Create a function that returns the license link
@@ -42,6 +44,8 @@ function renderLicenseLink(license) {
   if (!license) {
     return '';
   }
+
+  return licenses.filter(l => l.name == license)[0].link;
 }
 
 // TODO: Create a function that returns the license section of README
@@ -50,12 +54,16 @@ function renderLicenseSection(license) {
   if (!license) {
     return '';
   }
+
+  let badge = renderLicenseBadge(license);
+  let link = renderLicenseLink(license);
+
+  console.log(badge, link);
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  console.log(data.title);
-  return `# ${data.title}`;
+  renderLicenseSection(data.license);
 
 }
 

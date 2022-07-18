@@ -16,11 +16,6 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Please enter a table of contents for the README file:',
-        name: 'toc'
-    },
-    {
-        type: 'input',
         message: 'Please enter installation instructions:',
         name: 'install'
     },
@@ -62,13 +57,21 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-async function writeToFile(fileName, data) {
-    await fs.writeFile(fileName, data)
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        err ? console.log(err) : console.log('ReadME File has been generated!')
+    })
 
 }
 
 // TODO: Create a function to initialize app
-function init() { }
+async function init() {
+    //Collect the user responses. Use await keyword to wait for promise to resolve prior to logging it.
+    const responses = await inquirer.prompt(questions);
+
+    //Log the user's response
+    console.log("Response: ", responses);
+}
 
 // Function call to initialize app
 init();

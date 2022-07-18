@@ -2,6 +2,9 @@
 let inquirer = require('inquirer');
 let fs = require('fs');
 
+//import generateMarkdown function
+let generateMarkdown = require('./utils/generateMarkdown')
+
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -27,9 +30,7 @@ const questions = [
     {
         type: 'list',
         message: 'Please select a license for your project',
-        choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0',
-            'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense',
-            'BSD', 'Creative Commons', 'IBM', 'Mozilla Public License 2.0'],
+        choices: ['MIT License', 'GNU GPL v2', 'GNU GPL v3', 'Apache License 2.0', 'BSD 3-Clause'],
         name: 'license'
     },
     {
@@ -64,26 +65,11 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 async function init() {
-    //Collect the user responses. Use await keyword to wait for promise to resolve prior to logging it.
+    //Collect the user responses. Use await keyword to wait for promise to resolve prior to passing it to generateMarkdown function
     const responses = await inquirer.prompt(questions);
 
-    //Log the user's response
-    console.log("Response: ", responses);
-    /** 
-     Response:  {
-        title: 'Test',
-        desc: 'test',
-        install: 'test',
-        usage: 'test',
-        license: 'IBM',
-        contribute: 'test',
-        test: 'test',
-        githubUsername: 'test',
-        email: 'test'
-        }
-     */
-
     //pass the user responses to the generateMarkdown function
+    generateMarkdown(responses);
 }
 
 // Function call to initialize app

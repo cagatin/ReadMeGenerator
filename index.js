@@ -52,8 +52,6 @@ const questions = [
         message: 'Please enter your email address:',
         name: 'email'
     },
-
-
 ];
 
 // TODO: Create a function to write README file
@@ -71,6 +69,21 @@ async function init() {
 
     //Log the user's response
     console.log("Response: ", responses);
+    /** 
+     Response:  {
+        title: 'Test',
+        desc: 'test',
+        install: 'test',
+        usage: 'test',
+        license: 'IBM',
+        contribute: 'test',
+        test: 'test',
+        githubUsername: 'test',
+        email: 'test'
+        }
+     */
+
+    //pass the user responses to the generateMarkdown function
 }
 
 // Function call to initialize app

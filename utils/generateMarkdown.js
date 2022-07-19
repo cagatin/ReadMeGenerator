@@ -62,19 +62,8 @@ function renderLicenseSection(license) {
   return licenseStr;
 }
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  let readMeText = ``;
-
-  // Create the title
-  if (data.title) {
-    let title = `# ${data.title}\n`;
-    readMeText += title;
-  }
-
-  // Create the Table of Contents
-  let toc;
-
+// Function to generate a table of contents
+function generateToC(data) {
   // Usage, License, Contributing, Tests, and Questions
   let descLink, installLink, usageLink, constributeLink, testLink, questionsLink;
 
@@ -107,6 +96,25 @@ function generateMarkdown(data) {
   \n
   `;
 
+  return toc;
+}
+
+// Function to generate a Description
+
+// TODO: Create a function to generate markdown for README
+function generateMarkdown(data) {
+  let readMeText = ``;
+
+  // Create the title
+  if (data.title) {
+    let title = `# ${data.title}\n`;
+    readMeText += title;
+  }
+
+  // Create the Table of Contents
+  let toc = generateToC(data);
+
+  // add the table of contents to the README file
   readMeText += toc;
 
   return readMeText;

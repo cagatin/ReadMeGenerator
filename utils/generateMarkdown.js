@@ -64,7 +64,7 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  let readMeText = '';
+  let readMeText = ``;
 
   // Create the title
   if (data.title) {
@@ -75,14 +75,41 @@ function generateMarkdown(data) {
   // Create the Table of Contents
   let toc;
 
+  // Usage, License, Contributing, Tests, and Questions
+  let descLink, installLink, usageLink, constributeLink, testLink, questionsLink;
+
   if (data.desc) {
-    let descLink = '[Description](#description)';
+    descLink = '[Description](#description) <br />';
   }
   if (data.install) {
-    let installLink = `[Installation](#installation)`
+    installLink = '[Installation](#installation) <br />';
+  }
+  if (data.usage) {
+    usageLink = '[Usage](#usage)';
+  }
+  if (data.contribute) {
+    constributeLink = '[Contribute](#contribute) <br />';
+  }
+  if (data.test) {
+    testLink = '[Test](#test) <br />';
+  }
+  if (data.githubUserName && data.email) {
+    questionsLink = '[Questions](#questions) <br />';
   }
 
+  toc = `
+  ## Table of Contents
+  ${descLink}
+  ${installLink}
+  ${constributeLink}
+  ${testLink}
+  ${questionsLink}
+  \n
+  `;
 
+  readMeText += toc;
+
+  return readMeText;
 }
 
 module.exports = generateMarkdown;

@@ -46,7 +46,7 @@ const questions = [
     {
         type: 'input',
         message: 'Please enter your github username:',
-        name: 'githubUsername'
+        name: 'githubUserName'
     },
     {
         type: 'input',
@@ -69,7 +69,11 @@ async function init() {
     const responses = await inquirer.prompt(questions);
 
     //pass the user responses to the generateMarkdown function
-    generateMarkdown(responses);
+    let readMeFile = generateMarkdown(responses);
+
+    fs.writeFile('README.md', readMeFile, (err) => {
+        err ? console.log(err) : console.log('Read Me File Created!');
+    })
 }
 
 // Function call to initialize app

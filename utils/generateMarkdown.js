@@ -58,12 +58,30 @@ function renderLicenseSection(license) {
   let badge = renderLicenseBadge(license);
   let link = renderLicenseLink(license);
 
-  console.log(badge, link);
+  let licenseStr = `[![License](${badge})](${link})`;
+  return licenseStr;
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  renderLicenseSection(data.license);
+  let readMeText = '';
+
+  // Create the title
+  if (data.title) {
+    let title = `# ${data.title}\n`;
+    readMeText += title;
+  }
+
+  // Create the Table of Contents
+  let toc;
+
+  if (data.desc) {
+    let descLink = '[Description](#description)';
+  }
+  if (data.install) {
+    let installLink = `[Installation](#installation)`
+  }
+
 
 }
 

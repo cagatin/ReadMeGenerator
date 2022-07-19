@@ -10,7 +10,7 @@
   <br />
   
   ## Description
-  A simple program to generate a README fil based on user input from the command line. <br />
+  A simple program to generate a README file based on user input from the command line. <br />
   
   ## Installation
   First, install any dependencies via the npm install command. Them, run the node index.js command to begin the creating process. <br/>

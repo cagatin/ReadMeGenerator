@@ -85,10 +85,6 @@ function generateToC(data) {
   if (data.githubUserName && data.email) {
     questionsLink = '[Questions](#questions) <br />';
   }
-  if (data.license) {
-    licenseLink = `[License](#license) <br/>`;
-  }
-
   toc = `
   ## Table of Contents
   ${descLink}
@@ -96,7 +92,6 @@ function generateToC(data) {
   ${constributeLink}
   ${testLink}
   ${questionsLink}
-  ${licenseLink}
   <br />
   `;
 

@@ -106,7 +106,7 @@ function generateDescription(data) {
   }
 
   let descText = `
-  ## Description <a name="description"/>
+  ## Description
   ${data.desc} <br />
   `
 

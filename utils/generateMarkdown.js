@@ -93,13 +93,25 @@ function generateToC(data) {
   ${constributeLink}
   ${testLink}
   ${questionsLink}
-  \n
+  <br />
   `;
 
   return toc;
 }
 
 // Function to generate a Description
+function generateDescription(data) {
+  if (!data.desc) {
+    return;
+  }
+
+  let descText = `
+  ## Description <a name="description"/>
+  ${data.desc} <br />
+  `
+
+  return descText;
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -116,6 +128,12 @@ function generateMarkdown(data) {
 
   // add the table of contents to the README file
   readMeText += toc;
+
+  // create the description section
+  let descSection = generateDescription(data);
+
+  // add the description section to the readMe file
+  readMeText += descSection;
 
   return readMeText;
 }

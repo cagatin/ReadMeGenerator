@@ -18,8 +18,8 @@
   ## Usage
   To quickly and efficiently generate a README file for a project/repository. <br/>
   
-  ## Constribute
-  Constribute by forking the github repo and submitting a pull request with your changes. <br/>
+  ## Contribute
+  Contribute by forking the github repo and submitting a pull request with your changes. <br/>
   
   ## Test
   No tests necessary <br/>

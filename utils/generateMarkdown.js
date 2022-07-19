@@ -67,7 +67,7 @@ function generateToC(data) {
   // Usage, License, Contributing, Tests, and Questions
   let descLink, installLink, usageLink, constributeLink, testLink, questionsLink;
 
-  if (data.desc) {
+  if (data.description) {
     descLink = '[Description](#description) <br />';
   }
   if (data.install) {
@@ -95,8 +95,8 @@ function generateToC(data) {
   ${installLink}
   ${constributeLink}
   ${testLink}
-  ${licenseLink}
   ${questionsLink}
+  ${licenseLink}
   <br />
   `;
 
@@ -145,7 +145,48 @@ function generateUsage(data) {
   return usageText;
 }
 
+// Function to generate constributions
+function generateContribute(data) {
+  if (!data.contribute) {
+    return;
+  }
 
+  let contText = `
+  ## Constribute
+  ${data.contribute} <br/>
+  `
+
+  return contText;
+}
+// Function to test constributions
+function generateTestSection(data) {
+  if (!data.test) {
+    return;
+  }
+
+  let testText = `
+  ## Test
+  ${data.test} <br/>
+  `
+
+  return testText;
+}
+// Function to generate constributions
+function generateQuestions(data) {
+  if (!data.githubUserName && !data.email) {
+    return;
+  }
+
+  let questionText = `
+  ## Questions? 
+  Reach me at the following with your questions: <br/>
+  Github Username: ${data.githubUserName} <br/>
+  Email:  ${data.email} <br/>
+  <br/>
+  `
+
+  return questionText;
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -180,13 +221,20 @@ function generateMarkdown(data) {
   readMeText += usageSection;
 
   // create the constribution section
+  let constributionSection = generateContribute(data);
+  readMeText += constributionSection;
 
   // create test section
-
-  // create license section
+  let testSection = generateTestSection(data);
+  readMeText += testSection;
 
   // create question section
+  let questionSection = generateQuestions(data);
+  readMeText += questionSection;
 
+  // create license section
+  let licenseUsed = renderLicenseSection(data.license);
+  readMeText += licenseUsed;
 
   return readMeText;
 }

@@ -85,6 +85,9 @@ function generateToC(data) {
   if (data.githubUserName && data.email) {
     questionsLink = '[Questions](#questions) <br />';
   }
+  if (data.license) {
+    licenseLink = `[License](#license) <br/>`;
+  }
 
   toc = `
   ## Table of Contents
@@ -92,6 +95,7 @@ function generateToC(data) {
   ${installLink}
   ${constributeLink}
   ${testLink}
+  ${licenseLink}
   ${questionsLink}
   <br />
   `;
@@ -101,17 +105,47 @@ function generateToC(data) {
 
 // Function to generate a Description
 function generateDescription(data) {
-  if (!data.desc) {
+  if (!data.description) {
     return;
   }
 
   let descText = `
   ## Description
-  ${data.desc} <br />
+  ${data.description} <br />
   `
 
   return descText;
 }
+
+// Function to generate Installation instructions
+function generateInstructions(data) {
+  if (!data.install) {
+    return;
+  }
+
+  let installText = `
+  ## Installation
+  ${data.install} <br/>
+  `
+
+  return installText;
+}
+
+// Function to generate the usage section
+function generateUsage(data) {
+  if (!data.usage) {
+    return;
+  }
+
+  let usageText = `
+  ## Usage
+  ${data.usage} <br/>
+  `
+
+  return usageText;
+}
+
+
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -134,6 +168,25 @@ function generateMarkdown(data) {
 
   // add the description section to the readMe file
   readMeText += descSection;
+
+  // create the installation section
+  let installSection = generateInstructions(data);
+
+  // add the installation instructions to the readMe text
+  readMeText += installSection;
+
+  // create the usage section
+  let usageSection = generateUsage(data);
+  readMeText += usageSection;
+
+  // create the constribution section
+
+  // create test section
+
+  // create license section
+
+  // create question section
+
 
   return readMeText;
 }

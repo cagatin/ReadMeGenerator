@@ -15,7 +15,7 @@ const questions = [
     {
         type: 'input',
         message: 'Please enter a description for the README file:',
-        name: 'desc'
+        name: 'description'
     },
     {
         type: 'input',

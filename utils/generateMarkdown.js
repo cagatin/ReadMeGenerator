@@ -147,7 +147,7 @@ function generateContribute(data) {
   }
 
   let contText = `
-  ## Constribute
+  ## Contribute
   ${data.contribute} <br/>
   `
 

@@ -6,23 +6,22 @@
   [Contribute](#contribute) <br />
   [Test](#test) <br />
   [Questions](#questions) <br />
-  [License](#license) <br/>
   <br />
   
   ## Description
-  A simple program to generate a README file based on user input from the command line. <br />
+  A program for quickly and efficiently generating a README File for your project. <br />
   
   ## Installation
-  First, install any dependencies via the npm install command. Them, run the node index.js command to begin the creating process. <br/>
+  First, run npm install to install any dependencies. Then, run node index.js to begin the README file generating process. <br/>
   
   ## Usage
-  To quickly and efficiently generate a README file for a project/repository. <br/>
+  For README file creation <br/>
   
   ## Contribute
-  Contribute by forking the github repo and submitting a pull request with your changes. <br/>
+  Fork the repository and submit a pull request. <br/>
   
   ## Test
-  No tests necessary <br/>
+  No tests. <br/>
   
   ## Questions? 
   Reach me at the following with your questions: <br/>

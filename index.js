@@ -71,7 +71,7 @@ async function init() {
     //pass the user responses to the generateMarkdown function
     let readMeFile = generateMarkdown(responses);
 
-    fs.writeFile('README.md', readMeFile, (err) => {
+    fs.writeFile('GENERATEDREADME.md', readMeFile, (err) => {
         err ? console.log(err) : console.log('Read Me File Created!');
     })
 }
